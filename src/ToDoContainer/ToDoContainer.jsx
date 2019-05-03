@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ToDoListItem from './ToDoListItem/ToDoListItem';
 
 class ToDoContainer extends Component{
     constructor(){
@@ -12,8 +13,9 @@ class ToDoContainer extends Component{
     }
     render(){
         const listItems = this.state.list.map((person, index)=>{
-            return <li key={index}>{ person.name } should die for { person.motivation }</li>
+            return <ToDoListItem person={person}></ToDoListItem>
         })
+        console.log(listItems);
         return(
             <div>
                 <h1>Here are the future victims</h1>
