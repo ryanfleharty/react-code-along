@@ -16,6 +16,15 @@ class ToDoContainer extends Component{
         e.preventDefault();
         const name = document.getElementById("name-input").value
         const motivation =  document.getElementById("motivation-input").value
+        const newVictim = {
+            "name": name,
+            "motivation": motivation
+        }
+        this.setState({
+            list: [...this.state.list, newVictim]
+        })
+        document.getElementById("name-input").value = null;
+        document.getElementById("motivation-input").value = null;
     }
     render(){
         const listItems = this.state.list.map((person, index)=>{
