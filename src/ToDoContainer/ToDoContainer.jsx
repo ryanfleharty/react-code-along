@@ -12,6 +12,13 @@ class ToDoContainer extends Component{
             ]
         }
     }
+    deleteListItem = (index) => {
+        const victims = this.state.list;
+        victims.splice(index, 1);
+        this.setState({
+            list: victims
+        })
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const name = document.getElementById("name-input").value
@@ -28,7 +35,7 @@ class ToDoContainer extends Component{
     }
     render(){
         const listItems = this.state.list.map((person, index)=>{
-            return <ToDoListItem number = {index} person={person}></ToDoListItem>
+            return <ToDoListItem number = {index} person={person} delete={this.deleteListItem}></ToDoListItem>
         })
         return(
             <div>
